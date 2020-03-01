@@ -16,21 +16,21 @@ int main(){
 	}
     int gd = DETECT, gm;
    initgraph(&gd, &gm, "");
-	int x = r, y = 0;
+	int x = 0, y = r;
     putpixel(y + xa, -x + ya, RED);
     putpixel(x + xa, -y + ya, RED);
     putpixel(y + xa, x+ ya, RED);
     putpixel(-y + xa, x + ya, RED);
 	int P = 1 - r;
-	while (x > y){
-		y++;
+	while (x < y){
+		x++;
 		if (P <= 0)
-			P = P + 2*y + 1;
+			P = P + 2*x + 1;
 		else{
-			x--;
-			P = P + 2*y - 2*x + 1;
+			y--;
+			P = P + 2*x - 2*y+ 1;
 		}
-		if (x < y)break;
+		if (x > y)break;
         putpixel(x + xa, y + ya, RED);
         putpixel(-x + xa, y + ya, RED);
         putpixel(x + xa, -y + ya, RED);
@@ -41,7 +41,7 @@ int main(){
             putpixel(y + xa, -x + ya, RED);
             putpixel(-y + xa, -x + ya, RED);
 		}
-		delay(100);
+		delay(10);
 	}
 	getch();
    closegraph();
