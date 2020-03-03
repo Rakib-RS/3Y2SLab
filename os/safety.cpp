@@ -3,14 +3,13 @@
 using namespace std;
 
 // Number of processes
- int P;
+int P=3;
 
 // Number of resources
- int R;
+int R=3;
 
 // Function to find the need of each process
-void calculateNeed(int need[P][R], int maxm[P][R],
-				int allot[P][R])
+void calculateNeed(int need[100][100], int maxm[100][100],int allot[100][100])
 {
 	// Calculating Need of each P
 	for (int i = 0 ; i < P ; i++)
@@ -22,10 +21,10 @@ void calculateNeed(int need[P][R], int maxm[P][R],
 }
 
 // Function to find the system is in safe state or not
-bool isSafe(int processes[], int avail[], int maxm[][R],
-			int allot[][R])
+bool isSafe(int processes[], int avail[], int maxm[][100],
+			int allot[][100])
 {
-	int need[P][R];
+	int need[100][100];
 
 	// Function to calculate need matrix
 	calculateNeed(need, maxm, allot);
@@ -109,7 +108,7 @@ int main()
     int i,j;
     cout<<"enter the number of process: ";
     cin>>P;
-    int processes[P];
+    int processes[100];
     cout<<"\n enter the process no: ";
     for(i=0;i<P;i++){
         cin>>processes[i];
@@ -117,12 +116,12 @@ int main()
     cout<<"\n enter the resource: ";
     cin>>R;
     cout<<"\n enter the avail: ";
-    int avail[R];
+    int avail[100];
     for(i=0;i<R;i++){
         cin>>avail[i];
     }
     cout<<"\n enter the maximum request:";
-    int maxm[P][R],allot[P][R];
+    int maxm[100][100],allot[100][100];
     for(i=0;i<P;i++){
         for(j=0;j<R;j++){
             cin>>maxm[i][j];

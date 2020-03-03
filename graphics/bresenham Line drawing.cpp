@@ -18,7 +18,7 @@ int main(){
         goto INPUT;
     }
     int gd = DETECT, gm;
-   initgraph(&gd, &gm, "");
+    initgraph(&gd, &gm, "");
     int m = 2 * (y2 - y1);
     int sloperror = m - (x2 - x1);
     for (int x = x1, y = y1; x <= x2; x++){
